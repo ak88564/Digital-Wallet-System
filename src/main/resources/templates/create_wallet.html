@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create the Wallet</title>
+</head>
+<body>
+<div style="height:100px; background-color: #D9D9D9">
+  <h3 style="text-align:center; line-height:100px">Digital Wallet System</h3>
+</div>
+<br>
+<div style = "height: 450px; background-color: #D9D9D9">
+    <form th:action="@{/homePage}" th:object="${wallet}" method="POST">
+        <h3 style="text-align:center;">You selected create wallet</h3>
+        <div style="width:200px; margin:auto">
+            <label style="background-color: #A41111; text-align:center; line-height: 70px; margin:10px">Enter name</label>
+            <input type="text" placeholder="Enter name" name = "name" th:field="*{name}">
+
+            <label style="background-color: #A41111; text-align:center; line-height: 70px; margin:10px">Enter amount</label>
+            <input type="text" placeholder="Enter amount" name = "amount" th:field="*{amount}">
+            <br><br>
+
+            <button type="submit" style="background-color:lightblue;">
+                Submit
+            </button>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>
