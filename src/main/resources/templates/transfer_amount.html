@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer Amount</title>
+</head>
+<body>
+<div style="height:100px; background-color: #D9D9D9">
+  <h3 style="text-align:center; line-height:100px">Digital Wallet System</h3>
+</div>
+<br>
+<div style = "height: 450px; background-color: #D9D9D9">
+  <form th:action="@{/homePage/transfer}" method="POST">
+    <h3 style="text-align:center;">You selected Transfer Amount</h3>
+    <div style="text-align:center">
+      <label style="background-color: #A41111; line-height: 150%; text-align:center; font-size: .90em; display: block">Enter sender account number</label>
+      <br>
+      <input style="text-align:center" type="text" placeholder="Account number" name = "acc_num1" id="acc_num1">
+      <br><br>
+
+      <label style="background-color: #A41111; line-height: 150%; text-align:center; font-size: .90em; display: block">Enter receiver account number</label>
+      <br>
+      <input style="text-align:center" type="text" placeholder="Account Number" name = "acc_num2" id="acc_num2">
+      <br><br>
+
+      <label style="background-color: #A41111; line-height: 150%; text-align:center; font-size: .90em">Amount:</label>
+      <input style="text-align:center" type="text" placeholder="Enter Amount" name = "amt" id="amt">
+      <br><br><br>
+
+      <button type="submit" style="background-color:lightblue;">
+        Submit/Transfer
+      </button>
+
+    </div>
+  </form>
+</div>
+</body>
+</html>

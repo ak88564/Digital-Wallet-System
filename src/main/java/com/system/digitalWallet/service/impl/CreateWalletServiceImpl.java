@@ -19,4 +19,21 @@ public class CreateWalletServiceImpl implements CreateWalletService {
         return walletRepository.save(wallet);
     }
 
+    @Override
+    public void transferAmount(Long accountNum1, Long accountNum2, Long amount) {
+//        Long accoun1 = (Long)accountNum1;
+        Wallet updateWallet1 = walletRepository.findById(accountNum1).orElse(null);
+        Wallet updateWallet2 = walletRepository.findById(accountNum2).orElse(null);
+//        int temp = walletRepository.findById(wallet.getId()).getAmount();
+        if (updateWallet1 != null && updateWallet2 !=null){
+            updateWallet1.setAmount(updateWallet1.getAmount() - amount);
+            walletRepository.save(updateWallet1);
+
+            updateWallet2.setAmount(updateWallet2.getAmount() + amount);
+            walletRepository.save(updateWallet2);
+        }
+        System.out.println("Transfer successful");
+
+    }
+
 }
