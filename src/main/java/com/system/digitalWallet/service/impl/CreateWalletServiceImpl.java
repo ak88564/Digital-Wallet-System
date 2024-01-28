@@ -5,6 +5,9 @@ import com.system.digitalWallet.repository.WalletRepository;
 import com.system.digitalWallet.service.CreateWalletService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 @Service
 public class CreateWalletServiceImpl implements CreateWalletService {
 
@@ -35,5 +38,11 @@ public class CreateWalletServiceImpl implements CreateWalletService {
         System.out.println("Transfer successful");
 
     }
+
+    @Override
+    public List<Wallet> taskList() {
+        return (walletRepository.findAll());
+    }
+
 
 }

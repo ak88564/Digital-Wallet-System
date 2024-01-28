@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class DigitalWalletController {
 
@@ -56,11 +58,16 @@ public class DigitalWalletController {
     public String transferAmount(@RequestParam("acc_num1") Long acc_num1, @RequestParam("acc_num2") Long acc_num2,
                                  @RequestParam("amt") Long amt, Model model) {
         createWalletService.transferAmount(acc_num1, acc_num2, amt);
-        System.out.println(acc_num1);
-        System.out.println(acc_num2);
-        System.out.println(amt);
 
         model.addAttribute("message", "Hello Spring MVC Framework!");
         return "redirect:/homePage"; // opens digital_wallet.html
+    }
+
+    @GetMapping("/homePage/overview")
+    public String openOverview(Model model) {
+        List<Wallet> datas = createWalletService.taskList();
+        model.addAttribute("datas", datas);
+        return "overview";
+
     }
 }
